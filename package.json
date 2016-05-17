@@ -1,0 +1,28 @@
+{
+  "homepage": "https://github.com/virelai/justyna_todo#readme",
+  "bugs": {
+    "url": "https://github.com/virelai/justyna_todo/issues"
+  },
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node node_modules/.bin/webpack-dev-server --host=0.0.0.0 --content-base app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "url": "git+https://github.com/virelai/justyna_todo.git",
+    "type": "git"
+  },
+  "author": "Justyna Szwarnóg",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "angular": "^1.5.2",
+    "bootstrap": "^3.3.6"
+  }
+}
