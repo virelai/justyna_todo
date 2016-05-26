@@ -1,5 +1,9 @@
+/*global Firebase */
+
 export default class HomeController {
-      constructor() {
+    
+    constructor() {
+
     this.name = 'World';
   }
 
