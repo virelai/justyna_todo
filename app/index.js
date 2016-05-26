@@ -1,4 +1,5 @@
-let x = 5;
+import angular from 'angular';
+import './style.css';
 
-
-console.log("Hello" + x);
+const ngModule = angular
+        .module('app', []);
