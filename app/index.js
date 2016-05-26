@@ -1,1 +1,4 @@
-console.log("Hello");
+let x = 5;
+
+
+console.log("Hello" + x);
