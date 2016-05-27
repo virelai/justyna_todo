@@ -1,8 +1,31 @@
-<div class="col-md-4">
+<div class="col-md-6">
+    
+    <add-item></add-item>
+    <label>Zalogowany jako: <input ng-model="searchText"></label>
+
+    <input ng-model="list.owner" type="text"/>
+    
+      <form id="addTaskForm" ng-submit="list.addItem(list.owner,list.desc)">
+        <input ng-model="list.desc" type="text" placeholder="Type to add new tasks"/>
+      </form>
+    
+    <button type="submit" form="addTaskForm">Submit</button>
+    
+    
+    
+    
     <table class="table">
-        <tr ng-repeat="item in list.items">
-            <td>{{item.name}}</td>
-            <td>{{item.text}}</td>
+        <tr ng-repeat="item in list.items | filter: { 'owner' : searchText }:true | orderBy: status ">
+            
+            <td>{{item.owner}}</td>
+            <!--<td><input ng-model="item.owner"></td>-->
+            
+            <td>{{item.description}}</td>
+            <td>{{item.status}}</td>
+            <td><input type="checkbox" value="{{ item.status }}" ng-click="list.changeStatus(item.$id)" ng-checked="{{ item.status }}"/></td>
+            
+
+            <td><button class="btn btn-info" ng-click="list.removeItem(item.$id)">Usuń</button></td>
         </tr>
     </table>
 </div>
