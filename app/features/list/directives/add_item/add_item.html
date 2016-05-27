@@ -1,5 +1,5 @@
-<div class="col-md-12 well text-center">
-   <form id="addTaskForm" ng-submit="list.addItem(list.owner,list.desc)">
+<div class="col-md-12 well text-center" ng-show="list.logged">
+   <form id="addTaskForm" ng-submit="list.addItem()">
     <div class="input-group input-group-lg">
      
         <input class="form-control text-center" ng-model="list.desc" type="text" placeholder="Type to add new tasks"/>

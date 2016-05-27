@@ -1,10 +1,10 @@
 <div class="col-md-6">
-    
+    <login-panel></login-panel>
     <add-item></add-item>
-    <label>Zalogowany jako:</label><input ng-model="list.owner" type="text" />
-
+    
+    <label>Pokaż tylko moje taski <input type="checkbox" ng-model="list.showOnlyMyTasks" ng-click="list.showMyTasks()" ng-show="list.logged" ></label><br>
     <table class="table">
-        <tr ng-repeat="item in list.items | filter: { 'owner' : list.owner }:true | orderBy: status ">
+        <tr ng-repeat="item in list.items | filter: { 'owner' : list.search }:list.showOnlyMyTasks ">
             
             <td>{{item.owner}}</td>
             <td>{{item.description}}</td>

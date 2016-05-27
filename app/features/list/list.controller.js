@@ -7,11 +7,12 @@ export default class ListController {
         
     let listRef = new Firebase("https://justynatodo.firebaseio.com/items");
     this.owner = "Doe";
+    this.desc = ""
     this.items = $firebaseArray(listRef);
 
   }
   
-  addItem(owner, description)
+  addItem()
   {
 
     if(this.desc == '' || this.owner == '')
@@ -20,9 +21,9 @@ export default class ListController {
     var listRef = new Firebase('https://justynatodo.firebaseio.com/items');
 
     listRef.push().set({
-      owner: owner,
+      owner: this.owner,
       status: "false",
-      description: description
+      description: this.desc
     });
     this.desc = '';
     
@@ -40,8 +41,7 @@ export default class ListController {
   {
   
     let listRef = new Firebase('https://justynatodo.firebaseio.com/items');
-    console.log(listRef.child(id));
-  
+
     listRef.once("value", function(itemSnapshot) {
     
     if(itemSnapshot.child(id).val().status == 'true')
@@ -51,6 +51,25 @@ export default class ListController {
     
     });
       
+  }
+  
+  logIn()
+  {
+    if(this.owner == '')
+      return;
+    this.logged = true;
+  }
+  
+  logOut()
+  {
+    this.logged = false;
+    this.owner = '';
+    this.search = this.owner;
+  }
+  
+  showMyTasks()
+  {
+    this.search = this.showOnlyMyTasks ? this.owner : '';
   }
   
 }
