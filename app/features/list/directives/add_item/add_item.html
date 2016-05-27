@@ -1,21 +1,14 @@
 <div class="col-md-12 well text-center">
+   <form id="addTaskForm" ng-submit="list.addItem(list.owner,list.desc)">
     <div class="input-group input-group-lg">
-      <input 
-        type="text" 
-        class="form-control text-center" 
-        placeholder="Add task"
-      />
+     
+        <input class="form-control text-center" ng-model="list.desc" type="text" placeholder="Type to add new tasks"/>
 
         
       <span class="input-group-btn">
-        <button class="btn btn-info" ng-click="list.addItem()">
-            Dodaj
-            </button>
-        <!--<button -->
-        <!--  class="btn btn-info" -->
-        <!--  type="button" -->
-        <!--  ui-sref="github({user: github.selectedUser})">Doda</button>-->
+        <button class="btn btn-info" type="submit" form="addTaskForm">Add</button>
       </span>
       
     </div>
+    </form>
 </div>
