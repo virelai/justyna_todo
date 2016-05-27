@@ -6,10 +6,11 @@ export default class ListController {
     constructor($firebaseArray) {
         
     let listRef = new Firebase("https://justynatodo.firebaseio.com/items");
-    this.owner = "Doe";
+    this.owner = "";
     this.desc = ""
     this.items = $firebaseArray(listRef);
 
+    this.statusFilter = '';
   }
   
   addItem()
@@ -65,11 +66,33 @@ export default class ListController {
     this.logged = false;
     this.owner = '';
     this.search = this.owner;
+    this.showOnlyMyTasks = false;
   }
   
   showMyTasks()
   {
     this.search = this.showOnlyMyTasks ? this.owner : '';
+  }
+  
+  
+  setStatusFilter(status)
+  {
+    
+    
+    switch(status) {
+    case 'all':
+      this.statusFilter = '';
+        break;
+    case 'todo':
+        this.statusFilter = 'false';
+        break;
+    case 'done':
+        this.statusFilter = 'true';
+        break;
+
+
+    }
+    
   }
   
 }

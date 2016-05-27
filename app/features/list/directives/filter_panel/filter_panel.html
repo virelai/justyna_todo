@@ -1,0 +1,4 @@
+<label>Pokaż tylko moje taski <input type="checkbox" ng-model="list.showOnlyMyTasks" ng-click="list.showMyTasks()" ng-show="list.logged" ></label><br>
+<button class="btn btn-info" ng-click="list.setStatusFilter('all')" >All</button>
+<button class="btn btn-info" ng-click="list.setStatusFilter('todo')" >Todo</button>
+<button class="btn btn-info" ng-click="list.setStatusFilter('done')" >Done</button>

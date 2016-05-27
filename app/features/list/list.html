@@ -2,9 +2,8 @@
     <login-panel></login-panel>
     <add-item></add-item>
     
-    <label>Pokaż tylko moje taski <input type="checkbox" ng-model="list.showOnlyMyTasks" ng-click="list.showMyTasks()" ng-show="list.logged" ></label><br>
     <table class="table">
-        <tr ng-repeat="item in list.items | filter: { 'owner' : list.search }:list.showOnlyMyTasks ">
+        <tr ng-repeat="item in list.items | filter: { 'owner' : list.search }:list.showOnlyMyTasks | filter: { 'status' : list.statusFilter } as filtered ">
             
             <td>{{item.owner}}</td>
             <td>{{item.description}}</td>
@@ -12,7 +11,10 @@
             <td><input type="checkbox" value="{{ item.status }}" ng-click="list.changeStatus(item.$id)" ng-checked="{{ item.status }}"/></td>
             
 
-            <td><button class="btn btn-info" ng-click="list.removeItem(item.$id)">Usuń</button></td>
+            <td><button class="btn btn-info" ng-click="list.removeItem(item.$id)" ng-show="item.owner == list.owner && list.logged" >Usuń</button></td>
         </tr>
     </table>
+    <filter-panel></filter-panel>
+    {{filtered.length}}
 </div>
+
