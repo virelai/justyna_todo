@@ -78,7 +78,6 @@ export default class ListController {
   setStatusFilter(status)
   {
     
-    
     switch(status) {
     case 'all':
       this.statusFilter = '';
@@ -89,7 +88,6 @@ export default class ListController {
     case 'done':
         this.statusFilter = 'true';
         break;
-
 
     }
     
