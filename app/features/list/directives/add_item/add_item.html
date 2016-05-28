@@ -1,14 +1,10 @@
 <div class="col-md-12 well text-center" ng-show="list.logged">
-   <form id="addTaskForm" ng-submit="list.addItem()">
-    <div class="input-group input-group-lg">
-     
-        <input class="form-control text-center" ng-model="list.desc" type="text" placeholder="Type to add new tasks"/>
-
-        
-      <span class="input-group-btn">
-        <button class="btn btn-info" type="submit" form="addTaskForm">Add</button>
-      </span>
-      
-    </div>
+    <form id="addTaskForm" ng-submit="list.addItem()">
+        <div class="input-group input-group-lg">
+            <input class="form-control text-center" ng-model="list.desc" type="text" placeholder="Type to add new tasks" required/>
+            <span class="input-group-btn">
+                <button class="btn btn-info" type="submit" form="addTaskForm">Add</button>
+            </span>
+        </div>
     </form>
 </div>

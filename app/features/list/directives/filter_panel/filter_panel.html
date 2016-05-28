@@ -1,4 +1,25 @@
-<label>Pokaż tylko moje taski <input type="checkbox" ng-model="list.showOnlyMyTasks" ng-click="list.showMyTasks()" ng-show="list.logged" ></label><br>
-<button class="btn btn-info" ng-click="list.setStatusFilter('all')" >All</button>
-<button class="btn btn-info" ng-click="list.setStatusFilter('todo')" >Todo</button>
-<button class="btn btn-info" ng-click="list.setStatusFilter('done')" >Done</button>
+<div class="row">
+    <div class="col-md-4 text-left">   
+        <button ng-class="{'btn btn-default' : ''!=list.statusFilter, 'btn btn-danger' : ''==list.statusFilter}" ng-click="list.setStatusFilter('all')" >All</button>
+        <button ng-class="{'btn btn-default' : 'false'!=list.statusFilter, 'btn btn-danger' : 'false'==list.statusFilter}" ng-click="list.setStatusFilter('todo')" >Todo</button>
+        <button ng-class="{'btn btn-default' : 'true'!=list.statusFilter, 'btn btn-danger' : 'true'==list.statusFilter}" ng-click="list.setStatusFilter('done')" >Done</button>
+    </div>
+    
+    <div class="col-md-4">
+            <div ng-show="list.logged" class="col-md-2">
+                <input id="showMyTasksLabel" type="checkbox" ng-model="list.showOnlyMyTasks" ng-click="list.showMyTasks()" />
+            </div>
+            <div ng-show="list.logged" class="col-md-10">
+                <label for="showMyTasksLabel" >Show only my tasks</label>
+            </div>
+    </div>
+    
+    <div class="col-md-4">
+            <div class="col-md-10 text-right">
+                Tasks: 
+            </div>
+            <div class="col-md-2">
+                {{filtered.length}}
+            </div>
+    </div>
+</div>

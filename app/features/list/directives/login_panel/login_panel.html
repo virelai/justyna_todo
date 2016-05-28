@@ -1,14 +1,9 @@
 <div class="col-md-12 well text-center">
     <div class="input-group input-group-lg">
-     
-        <input class="form-control text-center" ng-model="list.owner" type="text" placeholder="Enter your e-mail" ng-disabled="list.logged" />
-
-        
+    <input class="form-control text-center" ng-model="list.owner" type="text" placeholder="Enter your e-mail" ng-disabled="list.logged" />
       <span class="input-group-btn">
         <button class="btn btn-info" ng-click="list.logIn()" ng-show="!list.logged">Log In</button>
         <button class="btn btn-info" ng-click="list.logOut()" ng-show="list.logged">Log Out</button>
       </span>
-      
     </div>
-
 </div>

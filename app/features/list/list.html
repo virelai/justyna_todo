@@ -1,20 +1,23 @@
-<div class="col-md-6">
+<div id="list" class="container well transp-50 text-center">
     <login-panel></login-panel>
     <add-item></add-item>
-    
-    <table class="table">
-        <tr ng-repeat="item in list.items | filter: { 'owner' : list.search }:list.showOnlyMyTasks | filter: { 'status' : list.statusFilter } as filtered ">
-            
-            <td>{{item.owner}}</td>
-            <td>{{item.description}}</td>
-            <td>{{item.status}}</td>
-            <td><input type="checkbox" value="{{ item.status }}" ng-click="list.changeStatus(item.$id)" ng-checked="{{ item.status }}"/></td>
-            
+    <filter-panel></filter-panel>
 
+    <table class="table table-hover table-striped well">
+        <tbody>
+        <tr>
+            <th>Status</th>
+            <th>Todo</th>
+            <th>Owner</th>
+            <th>Remove</th>
+        </tr>
+        <tr ng-repeat="item in list.items | filter: { 'owner' : list.search }:list.showOnlyMyTasks | filter: { 'status' : list.statusFilter } as filtered ">
+            <td><input type="checkbox" value="{{ item.status }}" ng-click="list.changeStatus(item.$id)" ng-checked="{{ item.status }}"/></td>
+            <td>{{item.description}}</td>
+            <td>{{item.owner}}</td>
             <td><button class="btn btn-info" ng-click="list.removeItem(item.$id)" ng-show="item.owner == list.owner && list.logged" >Usuń</button></td>
         </tr>
+        </tbody>
     </table>
-    <filter-panel></filter-panel>
-    {{filtered.length}}
 </div>
 

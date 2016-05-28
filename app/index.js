@@ -1,8 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './resources/css/style.css';
 import angular from 'angular';
-
-
 import uirouter from 'angular-ui-router';
 import routing from './config';
 

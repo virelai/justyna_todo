@@ -7,9 +7,9 @@ export default class ListController {
         
     let listRef = new Firebase("https://justynatodo.firebaseio.com/items");
     this.owner = "";
-    this.desc = ""
+    this.desc = "";
     this.items = $firebaseArray(listRef);
-
+    this.showOnlyMyTasks = true;
     this.statusFilter = '';
   }
   
@@ -77,7 +77,6 @@ export default class ListController {
   
   setStatusFilter(status)
   {
-    
     switch(status) {
     case 'all':
       this.statusFilter = '';
@@ -88,9 +87,7 @@ export default class ListController {
     case 'done':
         this.statusFilter = 'true';
         break;
-
     }
-    
   }
   
 }
