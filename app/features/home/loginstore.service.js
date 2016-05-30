@@ -8,10 +8,16 @@ export default class LoginStoreService {
     };
 
     setLoggedIn(loggedIn) {
-        
-        console.log(loggedIn + "LoginStoreService");
         this.loggedIn = loggedIn;
-
     }
+    
+    getEmail() {
+        return this.email;
+    };
 
+    
+    setEmail(email) {
+        this.email = email;
+    };
+    
 }

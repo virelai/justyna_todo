@@ -9,29 +9,25 @@ export default class ListController {
     
     this.LoginService = LoginService;
         
-    //this.LoginService.setValue();
-    LoginService.getLoggedIn();
-    
-    console.log(LoginService.getLoggedIn());
-    
-    
-    this.owner = "";
+    this.logged = LoginService.getLoggedIn();
+    this.email = LoginService.getEmail();
     this.desc = "";
     this.items = $firebaseArray(listRef);
-    this.showOnlyMyTasks = true;
+    this.showOnlyMyTasks = false;
     this.statusFilter = '';
+    
   }
   
   addItem()
   {
 
-    if(this.desc == '' || this.owner == '')
+    if(this.desc == '' || this.email == '')
       return;
 
     var listRef = new Firebase('https://justynatodo.firebaseio.com/items');
 
     listRef.push().set({
-      owner: this.owner,
+      owner: this.email,
       status: "false",
       description: this.desc
     });
@@ -65,24 +61,26 @@ export default class ListController {
   
   logIn()
   {
-    if(this.owner == '')
+    if(this.email == '')
       return;
     this.logged = true;
-    this.LoginService.setLoggedIn('yes');
+    this.LoginService.setLoggedIn(true);
+    this.LoginService.setEmail(this.email);
   }
   
   logOut()
   {
     this.logged = false;
-    this.owner = '';
-    this.search = this.owner;
+    this.LoginService.setLoggedIn(false);
+    this.email = '';
+    this.LoginService.setEmail(this.email);
+    this.search = this.email;
     this.showOnlyMyTasks = false;
-    this.LoginService.setLoggedIn('no');
   }
   
   showMyTasks()
   {
-    this.search = this.showOnlyMyTasks ? this.owner : '';
+    this.search = this.showOnlyMyTasks ? this.email : '';
   }
   
   

@@ -15,9 +15,10 @@
             <td><input type="checkbox" value="{{ item.status }}" ng-click="list.changeStatus(item.$id)" ng-checked="{{ item.status }}"/></td>
             <td>{{item.description}}</td>
             <td>{{item.owner}}</td>
-            <td><button class="btn btn-info" ng-click="list.removeItem(item.$id)" ng-show="item.owner == list.owner && list.logged" >Usuń</button></td>
+            <td><button class="btn btn-info" ng-click="list.removeItem(item.$id)" ng-show="item.owner == list.email && list.logged" >Usuń</button></td>
         </tr>
         </tbody>
     </table>
+     <a class="btn btn-default btn-block back-button" role="button" ui-sref="home">Back to home</a>
 </div>
 
