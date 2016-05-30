@@ -3,9 +3,18 @@
 export default class ListController {
     
     
-    constructor($firebaseArray) {
+    constructor($firebaseArray, LoginService) {
         
     let listRef = new Firebase("https://justynatodo.firebaseio.com/items");
+    
+    this.LoginService = LoginService;
+        
+    //this.LoginService.setValue();
+    LoginService.getLoggedIn();
+    
+    console.log(LoginService.getLoggedIn());
+    
+    
     this.owner = "";
     this.desc = "";
     this.items = $firebaseArray(listRef);
@@ -59,6 +68,7 @@ export default class ListController {
     if(this.owner == '')
       return;
     this.logged = true;
+    this.LoginService.setLoggedIn('yes');
   }
   
   logOut()
@@ -67,6 +77,7 @@ export default class ListController {
     this.owner = '';
     this.search = this.owner;
     this.showOnlyMyTasks = false;
+    this.LoginService.setLoggedIn('no');
   }
   
   showMyTasks()

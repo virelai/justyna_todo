@@ -1,6 +1,10 @@
 export default class HomeController {
     
-    constructor() {
+    constructor(LoginStoreService) {
+        
+        
+        
+        console.log(LoginStoreService.getLoggedIn())
 
   }
 

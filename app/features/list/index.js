@@ -10,9 +10,12 @@ import filterPanel from './directives/filter_panel';
 import routing from './list.routes';
 import ListController from './list.controller';
 
+import LoginService from './login.service';
+
 export default angular.module('app.list', [uirouter, angularFire])
   .config(routing)
   .controller('ListController', ListController)
+  .service('LoginService', LoginService)
   .directive('addItem', addItem)
   .directive('loginPanel', loginPanel)
   .directive('filterPanel', filterPanel)
